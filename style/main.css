@@ -1,0 +1,69 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/*body {
+  background-image: url("../img/bg.jpg");
+}*/
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.33);
+  padding: 2em;
+}
+
+.modal * {
+  box-sizing: border-box;
+  display: block;
+  margin: 0.5em auto;
+  width: 80%;
+}
+
+.modal button {
+
+}
+
+.profileWrapper {
+  width: 7.5em;
+  margin: 1em auto 2.5em auto;
+}
+
+.profileWrapper img {
+  border-radius: 50%;
+  width: 100%;
+  height: auto;
+}
+
+footer {
+  box-sizing: border-box;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1em 1em;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+footer span.fa {
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+footer span.fa span {
+  font-size: 0.75em;
+}
+footer span.fa:nth-child(2) {
+  margin-left: 1em
+}
+footer span.time {
+  font-size: 1rem;
+  float: right;
+}

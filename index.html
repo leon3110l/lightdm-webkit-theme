@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="style/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="style/main.css">
     <meta charset="utf-8">
     <title>greeter</title>
   </head>
   <body>
-    <nav>
-
-    </nav>
-    <main>
-
+    <main class="modal">
+      <div class="profileWrapper">
+        <img src="img/default.png" alt="profile picture">
+      </div>
+      <select class="userSelect">
+      </select>
+      <input class="password" type="password" placeholder="Password">
+      <button type="button">Sign in</button>
     </main>
     <footer>
-
+      <span class="fa fa-power-off power">
+        <span>shutdown</span>
+      </span>
+      <span class="fa fa-repeat reboot">
+        <span>reboot</span>
+      </span>
+      <span class="time"></span>
     </footer>
     <script src="js/main.js" charset="utf-8"></script>
   </body>
