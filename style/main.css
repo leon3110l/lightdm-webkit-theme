@@ -15,7 +15,7 @@ body {
 }
 
 select {
-  
+
 }
 
 .modal {
@@ -34,6 +34,15 @@ select {
   display: block;
   margin: 0.5em auto;
   width: 80%;
+}
+
+.selects {
+  display: flex;
+  flex-direction: row;
+}
+
+.selects select:nth-child(1) {
+  margin-right: 0.5em;
 }
 
 .modal button {
