@@ -11,7 +11,6 @@ window.authentication_complete = function() {
 			document.querySelector(".password").classList.toggle("wiggle");
 			document.querySelector(".password").classList.toggle("wrong");
 		}, 1000);
-		lightdm.cancel_authentication();
 	}
 };
 
@@ -70,7 +69,12 @@ window.addEventListener("load", () => {
   document.querySelector(".form").addEventListener("submit", e => {
     const user = userSelect.value;
     const pass = document.querySelector(".password").value;
+		if (lightdm.in_authentication) {
+			lightdm.cancel_authentication();
+		}
     lightdm.authenticate(user);
-		lightdm.respond(pass);
+		setTimeout(() => {
+			lightdm.respond(pass);
+		}, 100);
   });
 });
