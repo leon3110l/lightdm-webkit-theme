@@ -1,13 +1,23 @@
+const wmSelect = document.querySelector(".wmSelect");
+const userSelect = document.querySelector(".userSelect");
+
+window.authentication_complete = function() {
+	if (lightdm.is_authenticated) {
+    lightdm.start_session(wmSelect.value);
+	} else {
+		// TODO: wrong pass message!
+		lightdm.cancel_authentication();
+	}
+};
+
 window.addEventListener("load", () => {
-  const wmSelect = document.querySelector(".wmSelect");
-  const userSelect = document.querySelector(".userSelect");
 
   // clock stuff
   const timer = document.querySelector(".time");
   updateTime();
   setInterval(() => {
     updateTime();
-  }, 30000);
+  }, 1000);
 
   function updateTime() {
     timer.innerHTML = theme_utils.get_current_localized_time();
@@ -15,14 +25,12 @@ window.addEventListener("load", () => {
 
   // get user data
   for (let user of lightdm.users) {
-    console.log(user);
     const option = document.createElement("option");
     option.value = user.username;
     option.innerHTML = user.username;
     userSelect.appendChild(option);
   }
   for (let session of lightdm.sessions) {
-    console.log(session);
     const option = document.createElement("option");
     option.value = session.key;
     option.innerHTML = session.name;
@@ -49,6 +57,11 @@ window.addEventListener("load", () => {
   });
 
   document.querySelector(".form").addEventListener("submit", e => {
+    const user = userSelect.value;
     const pass = document.querySelector(".password").value;
+    lightdm.authenticate(user);
+    setTimeout(() => {
+			lightdm.respond(pass);
+		}, 300);
   });
 });
