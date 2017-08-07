@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet"> -->
     <link rel="stylesheet" href="style/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="style/main.css">
     <meta charset="utf-8">
@@ -12,17 +12,16 @@
       <div class="profileWrapper">
         <img src="img/default.png" alt="profile picture">
       </div>
-      <div class="selects">
-        <select class="userSelect">
-          <option value="leon">leon</option>
-        </select>
-        <select class="wmSelect">
-          <option value="i3">i3</option>
-          <option value="gnome">gnome</option>
-        </select>
-      </div>
-      <input class="password" type="password" placeholder="Password">
-      <button type="button">Sign in</button>
+      <form class="form" onsubmit="return false;">
+        <div class="selects">
+          <select class="userSelect">
+          </select>
+          <select class="wmSelect">
+          </select>
+        </div>
+        <input class="password" type="password" placeholder="Password">
+        <input type="submit" class="sign-in" value="Sign in">
+      </form>
     </main>
     <footer>
       <span class="fa fa-power-off power">

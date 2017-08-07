@@ -30,6 +30,10 @@ select {
 }
 
 .modal * {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.modal .form input, .selects {
   box-sizing: border-box;
   display: block;
   margin: 0.5em auto;
@@ -41,12 +45,21 @@ select {
   flex-direction: row;
 }
 
-.selects select:nth-child(1) {
-  margin-right: 0.5em;
+.selects select {
+  display: block;
+  width: 100%;
 }
 
-.modal button {
+.selects select:nth-child(1) {
+  margin-right: 0.5em;
+  flex-grow: 2;
+}
+.selects select:nth-child(2) {
+  flex-shrink: 2;
+}
 
+.modal form input[type="submit"] {
+  
 }
 
 .profileWrapper {
