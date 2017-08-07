@@ -14,14 +14,14 @@ window.addEventListener("load", () => {
   }
 
   // get user data
-  for (let user in lightdm.users) {
+  for (let user of lightdm.users) {
     console.log(user);
     const option = document.createElement("option");
     option.value = user.username;
     option.innerHTML = user.username;
     userSelect.appendChild(option);
   }
-  for (let session in lightdm.sessions) {
+  for (let session of lightdm.sessions) {
     console.log(session);
     const option = document.createElement("option");
     option.value = session.key;
