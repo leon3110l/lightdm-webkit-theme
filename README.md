@@ -1,7 +1,7 @@
 # lightdm-webkit-theme
 an lightdm-webkit2-greeter theme
 
-![screenshot]("./img/screenshot.png")
+![screenshot]("https://github.com/leon-4A6C/lightdm-webkit-theme/blob/master/img/screenshot.png?raw=true")
 
 ## installation
 ```console
