@@ -5,7 +5,12 @@ window.authentication_complete = function() {
 	if (lightdm.is_authenticated) {
     lightdm.start_session(wmSelect.value);
 	} else {
-		// TODO: wrong pass message!
+		document.querySelector(".password").classList.toggle("wiggle");
+		document.querySelector(".password").classList.toggle("wrong");
+		setTimeout(() => {
+			document.querySelector(".password").classList.toggle("wiggle");
+			document.querySelector(".password").classList.toggle("wrong");
+		}, 1000);
 		lightdm.cancel_authentication();
 	}
 };
@@ -28,12 +33,18 @@ window.addEventListener("load", () => {
     const option = document.createElement("option");
     option.value = user.username;
     option.innerHTML = user.username;
+		if (user.username === lightdm.select_user_hint) {
+			option.selected = "";
+		}
     userSelect.appendChild(option);
   }
   for (let session of lightdm.sessions) {
     const option = document.createElement("option");
     option.value = session.key;
     option.innerHTML = session.name;
+		if (session.name === lightdm.default_session) {
+			option.selected = "";
+		}
     wmSelect.appendChild(option);
   }
 
@@ -60,8 +71,6 @@ window.addEventListener("load", () => {
     const user = userSelect.value;
     const pass = document.querySelector(".password").value;
     lightdm.authenticate(user);
-    setTimeout(() => {
-			lightdm.respond(pass);
-		}, 300);
+		lightdm.respond(pass);
   });
 });

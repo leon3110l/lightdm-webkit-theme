@@ -14,10 +14,6 @@ body {
   background-size: cover;
 }
 
-select {
-
-}
-
 .modal {
   position: absolute;
   top: 50%;
@@ -40,6 +36,22 @@ select {
   width: 80%;
 }
 
+.wiggle {
+  animation-name: wiggle;
+  animation-duration: 0.25s;
+  animation-iteration-count: 4;
+  animation-timing-function: linear;
+}
+
+.password {
+  transition: background 300ms;
+  background-color: white;
+}
+
+.wrong {
+  background-color: rgba(200, 0, 0, 0.5);
+}
+
 .selects {
   display: flex;
   flex-direction: row;
@@ -56,10 +68,6 @@ select {
 }
 .selects select:nth-child(2) {
   flex-shrink: 2;
-}
-
-.modal form input[type="submit"] {
-
 }
 
 .profileWrapper {
@@ -105,4 +113,12 @@ footer span.time {
 }
 footer span {
   font-family: 'Open Sans', sans-serif;
+}
+
+@keyframes wiggle {
+  0% { transform: translateX(0em); }
+  25% { transform: translateX(-0.25em); }
+  50% { transform: translateX(0em); }
+  75% { transform: translateX(0.25em); }
+  100% { transform: translateX(0em); }
 }
