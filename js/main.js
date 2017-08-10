@@ -27,6 +27,14 @@ window.addEventListener("load", () => {
     timer.innerHTML = theme_utils.get_current_localized_time();
   }
 
+	function setUserImg(user) {
+		const img = document.querySelector(".user_pic");
+		if (!user.image) {
+			img.src = "./img/default.png";
+		} else {
+			img.src = user.image;
+		}
+	}
   // get user data
   for (let user of lightdm.users) {
     const option = document.createElement("option");
@@ -38,10 +46,12 @@ window.addEventListener("load", () => {
     userSelect.appendChild(option);
   }
   for (let session of lightdm.sessions) {
+		const user = lightdm.users.find(x => x.username === userSelect.value);
+		setUserImg(user);
     const option = document.createElement("option");
     option.value = session.key;
     option.innerHTML = session.name;
-		if (session.name === lightdm.default_session) {
+		if (session.key === user.session) {
 			option.selected = "";
 		}
     wmSelect.appendChild(option);
@@ -56,7 +66,7 @@ window.addEventListener("load", () => {
     lightdm.restart();
   });
 
-  userSelect.addEventListener("click", e => {
+  userSelect.addEventListener("change", e => {
     const user = lightdm.users.find(x => x.username === e.target.value);
     for (let i = 0; i < wmSelect.options.length; i++) {
       if (wmSelect.options[i].value === user.session) {
@@ -64,6 +74,7 @@ window.addEventListener("load", () => {
       }
     }
     wmSelect.options.selectedIndex = i || 0;
+		setUserImg(user);
   });
 
   document.querySelector(".form").addEventListener("submit", e => {
